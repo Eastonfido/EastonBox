@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ECharts Chart</title>
+  <script src="https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js"></script>
+</head>
+<body>
+  <div id="chart" style="width: 800px; height: 500px;"></div>
+  <script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('chart'));
+    var option = {
+      title: {
+        text: '2021-2023 黑龙江省林业和草原相关预算变化图',
+        subtext: '',
+        left: 'center'
+      },
+      color: '#3398DB',
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        },
+        formatter: '{b}: {c} 万元'
+      },
+      legend: {
+        data: ['2021', '2022', '2023'],
+        top: 30
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'category',
+        data: ['自然保护地', '动植物保护', '湿地保护', '草原保护', '森林资源管理', '执法与监督']
+      },
+      yAxis: {
+        type: 'value',
+        name: '金额（万元）'
+      },
+      series: [
+        {
+          name: '2021',
+          type: 'bar',
+          data: [2800, 15500, 5000, 1005, 650830, 14640],
+          label: {
+            show: true,
+            position: 'top',
+            formatter: '{c} 万元'
+          }
+        },
+        {
+          name: '2022',
+          type: 'bar',
+          data: [27000, 65160, 60000, 1000, 1046120, 12000],
+          label: {
+            show: true,
+            position: 'top',
+            formatter: '{c} 万元'
+          }
+        },
+        {
+          name: '2023',
+          type: 'bar',
+          data: [23100, 79160, 111100, 809, 2243960, 8000],
+          label: {
+            show: true,
+            position: 'top',
+            formatter: '{c} 万元'
+          }
+        }
+      ]
+    };
+    myChart.setOption(option);
+  </script>
+</body>
+</html>
